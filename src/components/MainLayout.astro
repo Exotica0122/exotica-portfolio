@@ -23,10 +23,10 @@ const { title = "Exotica Portfolio" } = Astro.props as MainLayoutProps;
     />
   </head>
   <body
-    class="min-h-screen bg-gradient-to-r from-red-500 to-purple-900 md:px-32"
+    class="min-h-screen w-full bg-gradient-to-r from-red-500 to-purple-900 sm:px-12 lg:px-32"
   >
     <Nav />
-    <main class="p-12">
+    <main class="md:p-12">
       <slot>A default text</slot>
     </main>
   </body>

@@ -1,11 +1,28 @@
 ---
+import { Icon } from "astro-icon";
 import Button from "./Button.astro";
 ---
 
-<nav class="flex items-center justify-between pt-5">
-  <a href="/" class="text-2xl font-bold text-stone-900">Exotica</a>
-  <div class="order-0 flex-none flex-grow-0">
-    <ul class="flex flex-row items-center justify-center gap-24">
+<nav
+  class="mx-4 flex flex-col justify-between pt-5 md:flex-row md:items-center"
+>
+  <div class="flex items-center justify-between">
+    <a
+      href="/"
+      class="text-2xl font-bold text-stone-900 transition-colors hover:text-white"
+      >Exotica</a
+    >
+    <Icon
+      name="mdi:hamburger-menu"
+      class="w-10 md:hidden cursor-pointer hover:text-white transition-colors"
+      id="hamburger"
+    />
+  </div>
+  <div
+    class="order-0 hidden flex-none flex-grow-0 bg-purple-300 bg-opacity-20 py-2 md:block md:bg-transparent md:bg-none"
+    id="nav-list"
+  >
+    <ul class="flex flex-row items-center justify-center gap-12 lg:gap-24">
       <li
         class="border-b-2 border-transparent text-white transition-colors hover:border-white"
       >
@@ -23,9 +40,22 @@ import Button from "./Button.astro";
       </li>
     </ul>
   </div>
-  <a href="/troll">
+  <a href="/troll" class="hidden md:block">
     <Button icon="ic:baseline-download" iconSide="right" size="md">
       Download CV
     </Button>
   </a>
 </nav>
+
+<script>
+  const hamburger = document.querySelector("#hamburger");
+  const navList = document.querySelector("#nav-list");
+
+  hamburger.addEventListener("click", () => {
+    if (navList.classList.contains("hidden")) {
+      navList.classList.remove("hidden");
+    } else {
+      navList.classList.add("hidden");
+    }
+  });
+</script>
