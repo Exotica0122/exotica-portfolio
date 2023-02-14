@@ -1,0 +1,25 @@
+---
+import { Icon } from "astro-icon";
+
+const { icon, link, hover = "true" } = Astro.props;
+---
+
+{
+  link ? (
+    <a
+      href={link}
+      class={`m-4 w-12 cursor-pointer transition-transform duration-100 ease-in ${
+        hover === "true" && "hover:scale-125"
+      }`}
+    >
+      <Icon name={icon} class="text-stone-100" />
+    </a>
+  ) : (
+    <Icon
+      name={icon}
+      class={`m-4 w-12 transition-transform duration-100 ease-in ${
+        hover === "true" && " hover:scale-125"
+      }`}
+    />
+  )
+}

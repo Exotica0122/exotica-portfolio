@@ -1,0 +1,31 @@
+---
+import Button from "./Button.astro";
+---
+
+<nav class="flex items-center justify-between pt-5">
+  <a href="/" class="text-2xl font-bold text-stone-900">Exotica</a>
+  <div class="order-0 flex-none flex-grow-0">
+    <ul class="flex flex-row items-center justify-center gap-24">
+      <li
+        class="border-b-2 border-transparent text-white transition-colors hover:border-white"
+      >
+        <a href="/">Home</a>
+      </li>
+      <li
+        class="border-b-2 border-transparent text-white transition-colors hover:border-white"
+      >
+        <a href="/blog">Blog</a>
+      </li>
+      <li
+        class="border-b-2 border-transparent text-white transition-colors hover:border-white"
+      >
+        <a href="/portfolio">Portfolio</a>
+      </li>
+    </ul>
+  </div>
+  <a href="/troll">
+    <Button icon="ic:baseline-download" iconSide="right" size="md">
+      Download CV
+    </Button>
+  </a>
+</nav>

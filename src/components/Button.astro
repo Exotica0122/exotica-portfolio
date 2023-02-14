@@ -1,0 +1,24 @@
+---
+import { Icon } from "astro-icon";
+
+interface ButtonProps {
+  icon: string;
+  iconSide: "left" | "right";
+  size: "sm" | "md" | "lg";
+}
+
+const { icon, iconSide, size = "md" } = Astro.props as ButtonProps;
+let iconSize;
+
+if (size == "sm") iconSize = "w-2";
+if (size == "md") iconSize = "w-5";
+if (size == "lg") iconSize = "w-7";
+---
+
+<button
+  class="flex items-center gap-1 rounded-full bg-gradient-to-t from-orange-400 to-orange-500 py-2 px-5 text-white transition-transform ease-in-out hover:scale-110"
+>
+  {icon && iconSide === "left" && <Icon name={icon} class={`${iconSize}`} />}
+  <slot>Button</slot>
+  {icon && iconSide === "right" && <Icon name={icon} class={`${iconSize}`} />}
+</button>

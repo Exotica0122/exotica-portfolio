@@ -1,15 +1,156 @@
 ---
+import Badge from "../components/Badge.astro";
+import Button from "../components/Button.astro";
+import Card from "../components/Card.astro";
+import Icon from "../components/Icon.astro";
+import MainLayout from "../components/MainLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout>
+  <div
+    class="my-20 flex w-full flex-col-reverse items-center justify-around md:flex-row"
+  >
+    <!-- Main Content -->
+    <div class="z-10 flex flex-col items-center">
+      <h1 class="text-7xl font-extrabold text-white">
+        Peter An <br />Full-stack <br /> Engineer
+      </h1>
+      <p class="my-8 w-80 text-center text-lg text-gray-200">
+        "Chasing for inspiration"
+      </p>
+      <div class="flex items-center justify-around">
+        <Icon icon="mdi:github" link="https://github.com/Exotica0122" />
+        <Icon
+          icon="mdi:linkedin"
+          link="https://www.linkedin.com/in/peteransoftware/"
+        />
+        <Icon
+          icon="ic:baseline-discord"
+          link="https://www.discordapp.com/users/Exotica#5946"
+        />
+      </div>
+    </div>
+    <div class="flex items-center justify-center">
+      <img
+        class="h-96 w-72 rounded-full border-white object-cover shadow-2xl"
+        src="/images/profile.jpg"
+        alt="Peter An"
+      />
+      <p class="rotate-90 tracking-[1rem] text-white opacity-60">Exotica</p>
+    </div>
+  </div>
+
+  <!-- Tech skills -->
+  <div class="flex flex-wrap items-center justify-around p-20">
+    <Badge>
+      <a href="https://reactjs.org/">
+        <img src="/images/react-logo.png" alt="React" />
+      </a>
+    </Badge>
+    <Badge>
+      <a href="https://astro.build/">
+        <img src="/images/astro-logo.png" alt="Astro" />
+      </a>
+    </Badge>
+    <Badge>
+      <a href="https://tailwindcss.com/">
+        <img src="/images/tailwind-logo.png" alt="Tailwind" />
+      </a>
+    </Badge>
+    <Badge>
+      <a href="https://nodejs.org/en/">
+        <img src="/images/node-logo.png" alt="NodeJS" />
+      </a>
+    </Badge>
+  </div>
+
+  <!-- About me -->
+  <div class="flex items-center justify-center gap-2">
+    <img
+      src="/images/profile.jpg"
+      alt="Peter"
+      class="w-60 overflow-hidden rounded-full"
+    />
+    <div class="flex flex-col items-start justify-center gap-2 p-24">
+      <h1 class="text-3xl font-bold tracking-wide text-white">About Me</h1>
+      <p class="mt-4 w-80 text-white">
+        I am currently a <span class="font-bold"
+          >Bachelor of Computer and Infomation Sciences</span
+        > student from <span class="font-bold">AUT.</span>
+        <br />
+        I love to share my passion about tech with my surrounding and want to inspire
+        develops with my work.
+      </p>
+      <div class="mt-4 self-end">
+        <Button>Check out my LinkedIn</Button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Latest Portfolio -->
+  <div class="my-20">
+    <h1 class="text-3xl font-bold tracking-wide text-white">
+      Latest Portfolio
+    </h1>
+    <p class="mt-4 w-1/2 text-white">
+      Here are some of my previous projects. I am still a beginner in the web
+      space so I still got lots to learn!
+    </p>
+
+    <!-- Card Grid -->
+    <div class="my-24 grid gap-12 md:grid-cols-2 xl:grid-cols-3">
+      <Card
+        title="Exotica Portfolio"
+        description="This is my personal website built with Astro and Tailwind"
+        image="images/personal-portfolio.jpg"
+        icon="mdi:github"
+        iconLink="https://github.com/Exotica0122/Typefast"
+      />
+      <Card title="Coming soon" description="..." />
+      <Card title="Coming soon" description="..." />
+    </div>
+  </div>
+
+  <!-- Connect With Me! -->
+  <div
+    class="flex w-full flex-col items-center justify-center py-12 px-40 text-white"
+  >
+    <div
+      class="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-bl from-red-500 to-orange-400 shadow"
+    >
+      <h2 class="select-none text-2xl font-extrabold">P</h2>
+    </div>
+    <h1
+      class="mt-8 mb-4 text-center text-3xl font-bold tracking-wide text-white"
+    >
+      Connect With Me!
+    </h1>
+    <p class="mb-8 text-center">
+      I am always wanted to improve and talk with other developers so don't be
+      afraid to connect and message me!
+    </p>
+    <div class="flex">
+      <Badge size="sm">
+        <Icon
+          icon="mdi:github"
+          link="https://github.com/Exotica0122"
+          hover="false"
+        />
+      </Badge>
+      <Badge size="sm">
+        <Icon
+          icon="mdi:linkedin"
+          link="https://www.linkedin.com/in/peteransoftware/"
+          hover="false"
+        />
+      </Badge>
+      <Badge size="sm">
+        <Icon
+          icon="ic:baseline-discord"
+          link="https://www.discordapp.com/users/Exotica#5946"
+          hover="false"
+        />
+      </Badge>
+    </div>
+  </div>
+</MainLayout>

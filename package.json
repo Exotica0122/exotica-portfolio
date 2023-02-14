@@ -1,15 +1,28 @@
 {
-	"name": "practice-portfolio",
-	"type": "module",
-	"version": "0.0.1",
-	"scripts": {
-		"dev": "astro dev",
-		"start": "astro dev",
-		"build": "astro build",
-		"preview": "astro preview",
-		"astro": "astro"
-	},
-	"dependencies": {
-		"astro": "^2.0.10"
-	}
+  "name": "exotica-portfolio",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^2.0.2",
+    "@astrojs/tailwind": "^3.0.1",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.10",
+    "astro": "^2.0.10",
+    "astro-icon": "^0.8.0",
+    "framer-motion": "^9.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.2.6"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.4",
+    "prettier-plugin-tailwindcss": "^0.2.2"
+  }
 }
