@@ -24,7 +24,10 @@ const {
     <div class="flex items-center justify-center gap-4 self-end">
       {
         icon && (
-          <a href={iconLink}>
+          <a
+            href={iconLink}
+            class="rounded-full bg-gradient-to-tl from-red-500 to-orange-400 p-2 transition-transform hover:scale-125"
+          >
             <Icon name={icon} class="w-8" />
           </a>
         )
