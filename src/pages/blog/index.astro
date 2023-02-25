@@ -1,0 +1,18 @@
+---
+import MainLayout from "../../components/MainLayout.astro";
+
+const allPosts = await Astro.glob("./*.md");
+---
+
+<MainLayout>
+  {
+    allPosts.map((post) => {
+      return (
+        <a href={post.url} class="bg-yellow-700">
+          <h1>{post.frontmatter.title}</h1>
+          <p>{post.frontmatter.description}</p>
+        </a>
+      );
+    })
+  }
+</MainLayout>
