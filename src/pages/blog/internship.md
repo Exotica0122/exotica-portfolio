@@ -5,20 +5,22 @@ description: I had an interesting internship experience at ezyVet duirng 2022/20
 imageUrl: ""
 ---
 
-# Dillinger
+# My Internship Experience at ezyVet
 
-## _The Last Markdown Editor, Ever_
+\
+\
+![ezyVet Internship Photo](/public/images/ezyvet-internship.jpg)
 
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
+> Where I am: _Second to left person._
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+## Intro
 
-Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
-AngularJS-powered HTML5 Markdown editor.
+I was able to have a lucky opportunity to have an internship experience during the 2022/2023 summer break.
 
-- Type some Markdown on the left
-- See HTML in the right
-- ✨Magic ✨
+During the 3 months I applied the current skills I had and went beyond to learn new skills.
+
+I was suprised what I achieved throughout this internship.
+So I would like to share some of these achievements to inspire and motivate those who read this blog.
 
 ## Features
 
@@ -85,14 +87,6 @@ NODE_ENV=production node app
 
 Dillinger is currently extended with the following plugins.
 Instructions on how to use them in your own application are linked below.
-
-| Plugin       | README                                |
-| ------------ | ------------------------------------- |
-| Dropbox      | [plugins/dropbox/README.md][PlDb]     |
-| GitHub       | [plugins/github/README.md][PlGh]      |
-| Google Drive | [plugins/googledrive/README.md][PlGd] |
-| OneDrive     | [plugins/onedrive/README.md][PlOd]    |
-| Medium       | [plugins/medium/README.md][PlMe]      |
 
 ## Development
 

@@ -3,13 +3,49 @@ import MainLayout from "./MainLayout.astro";
 ---
 
 <MainLayout>
-  <div class="break-words bg-white p-6">
+  <div
+    class="blog-content break-words bg-white px-6 py-12 text-black shadow-inner xl:px-12"
+  >
     <slot />
   </div>
 </MainLayout>
 
-<style is:global>
-  h1 {
-    font-size: 1.5rem;
+<style is:global lang="scss">
+  .blog-content {
+    h1 {
+      @apply text-center text-5xl font-bold;
+    }
+    h2 {
+      @apply mt-12 text-xl font-bold sm:text-2xl;
+    }
+    h3 {
+      @apply mt-6 text-base font-bold sm:text-lg;
+    }
+    p {
+      @apply my-2;
+    }
+    a {
+      @apply text-purple-400 underline-offset-2 hover:underline;
+    }
+    :not(pre) code {
+      @apply break-words rounded-sm bg-gray-100 px-1 italic;
+    }
+    blockquote {
+      @apply border-l-4 border-red-300 bg-purple-200 p-4 italic shadow-lg;
+    }
+    ul {
+      @apply ml-4 list-inside list-disc;
+    }
+    em {
+      font-weight: 300;
+    }
+
+    .astro-code {
+      @apply py-4 px-3;
+    }
+
+    img {
+      @apply mx-auto my-6 sm:max-w-md md:max-w-md lg:max-w-xl xl:max-w-2xl;
+    }
   }
 </style>
