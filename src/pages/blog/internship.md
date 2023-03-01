@@ -1,7 +1,7 @@
 ---
 layout: "../../components/BlogPostLayout.astro"
 title: My Internship Experience
-description: I had an interesting internship experience at ezyVet duirng 2022/2023 summer university holiday and I want to share this experience
+description: I had an interesting internship experience at ezyVet during 2022/2023 summer university holiday and I want to share this experience
 imageUrl: ""
 ---
 
@@ -9,9 +9,9 @@ imageUrl: ""
 
 \
 \
-![ezyVet Internship Photo](/public/images/ezyvet-internship.jpg)
+![ezyVet Internship Photo](/images/ezyvet-internship.jpg)
 
-> Where I am: _Second to left person._
+> **Where I am:** _Second to left person._
 
 ## Intro
 
@@ -19,47 +19,53 @@ I was able to have a lucky opportunity to have an internship experience during t
 
 During the 3 months I applied the current skills I had and went beyond to learn new skills.
 
-I was suprised what I achieved throughout this internship.
+I was surprised what I achieved throughout this internship.
 So I would like to share some of these achievements to inspire and motivate those who read this blog.
 
-## Features
+> **Note:** _I got offered a grad offer before my internship. The internship is just for me to get started working earlier_
 
-- Import a HTML file and watch it magically convert to Markdown
-- Drag and drop images (requires your Dropbox account be linked)
-- Import and save files from GitHub, Dropbox, Google Drive and One Drive
-- Drag and drop markdown and HTML files into Dillinger
-- Export documents as Markdown, HTML and PDF
+## Content:
 
-Markdown is a lightweight markup language based on the formatting conventions
-that people naturally use in email.
-As [John Gruber] writes on the [Markdown site][df1]
+-   [First Week](/blog/internship/#first-week)
+-   [First Project](/blog/internship/#first-project)
 
-> The overriding design goal for Markdown's
-> formatting syntax is to make it as readable
-> as possible. The idea is that a
-> Markdown-formatted document should be
-> publishable as-is, as plain text, without
-> looking like it's been marked up with tags
-> or formatting instructions.
+## First Week
 
-This text you see here is \*actually- written in Markdown! To get a feel
-for Markdown's syntax, type some text into the left window and
-watch the results in the right.
+The first week was all filled with with onboarding and orientation. Pretty standard.
+I had to complete the tasks they provided like tutorials about the product and also getting my dev environment set up.
+I got a have a buddy with me since the first day so I thought I was lucky. _(some people didn't)_
+
+## First project (API Docs)
+
+The first project that I worked on was removing the API Documentation in their monorepo.
+I got to make my separate repo and I made a CI build step in GitLab CI/CD. When the PR was approved, the main branch
+started a pipeline that builds the project and uploads the minified(bundled) project into an AWS s3 bucket and used CloudFront
+distribute the website to CDN. This was all done automatically. Also I set up a docker container that mounts with the project for hot reloading.
+
+\
+\
+Things I learned
+
+-   Writing pipelines in GitLab using their CI/CD pipeline.
+-   Containerizing the project with docker
+-   AWS s3 bucket and CloudFront for bucket storage and CDN
+
+## Second Project (End-to-end Test)
 
 ## Tech
 
 Dillinger uses a number of open source projects to work properly:
 
-- [AngularJS] - HTML enhanced for web apps!
-- [Ace Editor] - awesome web-based text editor
-- [markdown-it] - Markdown parser done right. Fast and easy to extend.
-- [Twitter Bootstrap] - great UI boilerplate for modern web apps
-- [node.js] - evented I/O for the backend
-- [Express] - fast node.js network app framework [@tjholowaychuk]
-- [Gulp] - the streaming build system
-- [Breakdance](https://breakdance.github.io/breakdance/) - HTML
-  to Markdown converter
-- [jQuery] - duh
+-   [AngularJS] - HTML enhanced for web apps!
+-   [Ace Editor] - awesome web-based text editor
+-   [markdown-it] - Markdown parser done right. Fast and easy to extend.
+-   [Twitter Bootstrap] - great UI boilerplate for modern web apps
+-   [node.js] - evented I/O for the backend
+-   [Express] - fast node.js network app framework [@tjholowaychuk]
+-   [Gulp] - the streaming build system
+-   [Breakdance](https://breakdance.github.io/breakdance/) - HTML
+    to Markdown converter
+-   [jQuery] - duh
 
 And of course Dillinger itself is open source with a [public repository][dill]
 on GitHub.
