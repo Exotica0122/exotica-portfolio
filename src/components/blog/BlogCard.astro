@@ -1,5 +1,5 @@
 ---
-const { url, title, description, imageUrl } = Astro.props;
+const { url, title, description, date, imageUrl } = Astro.props;
 ---
 
 <div
@@ -10,6 +10,7 @@ const { url, title, description, imageUrl } = Astro.props;
     <div class="items-stretchf flex h-auto flex-col content-between">
       <h1 class="text-2xl font-bold">{title}</h1>
       <p>{description}</p>
+      <p class="text-end font-thin italic">{date}</p>
     </div>
   </a>
 </div>
