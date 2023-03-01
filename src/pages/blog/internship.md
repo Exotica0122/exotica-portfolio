@@ -3,9 +3,14 @@ layout: "../../components/blog/BlogPostLayout.astro"
 title: My Internship Experience
 description: I had an interesting internship experience at ezyVet during 2022/2023 summer university holiday and I want to share this experience
 imageUrl: "/images/blog/internship/ezyvet-internship.jpg"
+date: "2nd March 2023"
 ---
 
 # My Internship Experience at ezyVet
+
+<br/>
+
+<div style="text-align: right"><strong>Written Date:</strong> <em>2nd March 2023</em></div>
 
 <br/>
 <br/>
