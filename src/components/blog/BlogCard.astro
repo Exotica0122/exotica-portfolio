@@ -1,0 +1,15 @@
+---
+const { url, title, description, imageUrl } = Astro.props;
+---
+
+<div
+  class="rounded-xl bg-gray-900 p-6 outline-2 hover:outline hover:outline-offset-2"
+>
+  <a href={url} class="flex items-center justify-center gap-6">
+    <img src={imageUrl} class="w-48" />
+    <div class="items-stretchf flex h-auto flex-col content-between">
+      <h1 class="text-2xl font-bold">{title}</h1>
+      <p>{description}</p>
+    </div>
+  </a>
+</div>
