@@ -8,11 +8,11 @@ import MainLayout from "../components/MainLayout.astro";
 
 <MainLayout>
   <div
-    class="my-20 flex flex-col-reverse items-center justify-around md:flex-row"
+    class="my-16 flex flex-col-reverse items-center justify-around md:flex-row"
   >
     <!-- Main Content -->
     <div class="flex flex-col items-center">
-      <h1 class="z-10 text-5xl font-extrabold text-white sm:text-7xl">
+      <h1 class="z-10 text-5xl font-extrabold sm:text-7xl">
         Peter An <br />Full-stack <br /> Engineer
       </h1>
       <p class="z-10 my-8 w-80 text-center text-lg text-gray-200">
@@ -36,15 +36,13 @@ import MainLayout from "../components/MainLayout.astro";
         src="/images/profile.jpg"
         alt="Peter An"
       />
-      <p class="p-6 tracking-[1rem] text-white opacity-60 md:rotate-90 md:p-0">
-        Exotica
-      </p>
+      <p class="p-6 tracking-[1rem] opacity-60 md:rotate-90 md:p-0">Exotica</p>
     </div>
   </div>
 
   <!-- Tech skills -->
   <div class="mt-44 flex flex-col items-center justify-center">
-    <h1 class="text-3xl font-bold tracking-wide text-white">Tech skills</h1>
+    <h1 class="text-3xl font-bold tracking-wide">Tech skills</h1>
     <div
       class="mt-4 flex flex-wrap items-center justify-around px-6 pb-20 md:gap-6 xl:gap-12"
     >
@@ -83,8 +81,8 @@ import MainLayout from "../components/MainLayout.astro";
     <div
       class="flex flex-col items-start justify-center gap-2 p-16 md:w-2/3 md:p-8 xl:w-3/5 xl:p-24"
     >
-      <h1 class="text-3xl font-bold tracking-wide text-white">About Me</h1>
-      <p class="mt-4 text-white">
+      <h1 class="text-3xl font-bold tracking-wide">About Me</h1>
+      <p class="mt-4">
         I am currently a <span class="font-bold"
           >Bachelor of Computer and Infomation Sciences</span
         > student from <span class="font-bold">AUT.</span>
@@ -103,10 +101,8 @@ import MainLayout from "../components/MainLayout.astro";
   <!-- Latest Portfolio -->
   <div class="my-20">
     <div class="flex flex-col items-center justify-center md:items-start">
-      <h1 class="text-3xl font-bold tracking-wide text-white">
-        Latest Portfolio
-      </h1>
-      <p class="mt-4 w-1/2 text-white">
+      <h1 class="text-3xl font-bold tracking-wide">Latest Portfolio</h1>
+      <p class="mt-4 w-1/2">
         Here are some of my previous projects. I am still a beginner in the web
         space so I still got lots to learn!
       </p>
@@ -121,28 +117,38 @@ import MainLayout from "../components/MainLayout.astro";
         icon="mdi:github"
         iconLink="https://github.com/Exotica0122/exotica-portfolio"
       />
-      <Card title="Coming soon" description="..." />
-      <Card title="Coming soon" description="..." />
+      <Card
+        title="HABPI"
+        description="An Amazon clone for animal service care"
+        image="images/habpi.jpg"
+        icon="mdi:github"
+        iconLink="https://github.com/Exotica0122/HABPI-frontend"
+      />
+      <Card
+        title="NZ COVID Tracker"
+        description="A simple Discord bot for latest COVID cases"
+        image="images/covid.jpg"
+        icon="mdi:github"
+        iconLink="https://github.com/Exotica0122/HABPI-frontend"
+      />
     </div>
   </div>
 
   <!-- Connect With Me! -->
   <div
-    class="flex w-full flex-col items-center justify-center px-4 text-white md:py-12 md:px-40"
+    class="flex w-full flex-col items-center justify-center px-4 md:py-12 md:px-40"
   >
     <div
       class="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-bl from-red-500 to-orange-400 shadow"
     >
       <h2 class="select-none text-2xl font-extrabold">P</h2>
     </div>
-    <h1
-      class="mt-8 mb-4 text-center text-3xl font-bold tracking-wide text-white"
-    >
+    <h1 class="mt-8 mb-4 text-center text-3xl font-bold tracking-wide">
       Connect With Me!
     </h1>
     <p class="mb-8 text-center">
-      I am always wanted to improve and talk with other developers so don't be
-      afraid to connect and message me!
+      I want to improve and talk to other developers so don't be afraid to
+      connect and message me!
     </p>
     <div class="flex">
       <Badge size="sm">

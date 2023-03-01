@@ -1,0 +1,21 @@
+---
+import MainLayout from "../../components/MainLayout.astro";
+import BlogCard from "../../components/blog/BlogCard.astro";
+
+const allPosts = await Astro.glob("./*.md");
+---
+
+<MainLayout>
+  {
+    allPosts.map((post) => {
+      return (
+        <BlogCard
+          url={post.url}
+          title={post.frontmatter.title}
+          description={post.frontmatter.description}
+          imageUrl={post.frontmatter.imageUrl}
+        />
+      );
+    })
+  }
+</MainLayout>
