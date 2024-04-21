@@ -103,7 +103,7 @@ export const Animation = () => {
           position="left-[50%] top-[50%]"
         />
       </div>
-      <Cursor x={mouseX} y={mouseY} />
+      <Cursor />
     </div>
   );
 };

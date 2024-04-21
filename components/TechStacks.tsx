@@ -2,12 +2,11 @@
 
 import React, { useRef } from "react";
 import clsx from "clsx";
-import { ExoticaLogo } from "./ExoticaLogo";
+import { ExoticaLogo } from "@/components/ExoticaLogo";
 import {
   SiTailwindcss,
   SiNextdotjs,
   SiReact,
-  SiNodedotjs,
   SiTypescript,
   SiAmazonaws,
   SiSupabase,

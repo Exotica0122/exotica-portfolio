@@ -1,17 +1,11 @@
 "use client";
 
 import clsx from "clsx";
-import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
-
-export type CursorProps = {
-  x: number;
-  y: number;
-};
 
 const cursorTrails = [...Array(20)];
 
-export const Cursor = ({ x, y }: CursorProps) => {
+export const Cursor = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
   const cursorTrailRef = useRef<HTMLDivElement[] | null[]>([]);
   const [clicked, setClicked] = useState(false);
@@ -24,34 +18,35 @@ export const Cursor = ({ x, y }: CursorProps) => {
     window.addEventListener("mouseup", () => {
       setClicked(false);
     });
-  }, []);
 
-  useEffect(() => {
-    if (!cursorRef.current || !cursorTrailRef.current) return;
+    window.addEventListener("mousemove", (e) => {
+      if (!cursorRef.current || !cursorTrailRef.current) return;
+      const { x, y } = e;
 
-    cursorRef.current.animate(
-      {
-        transform: `translate3d(${x - cursorRef.current.offsetWidth / 2}px, ${y - cursorRef.current.offsetHeight / 2}px, 0)`,
-      },
-      {
-        fill: "forwards",
-      },
-    );
+      cursorRef.current.animate(
+        {
+          transform: `translate3d(${x - cursorRef.current.offsetWidth / 2}px, ${y - cursorRef.current.offsetHeight / 2}px, 0)`,
+        },
+        {
+          fill: "forwards",
+        },
+      );
 
-    cursorTrailRef.current.map((cursorTrail, i) => {
-      setTimeout(() => {
-        if (!cursorTrail) return;
-        cursorTrail.animate(
-          {
-            transform: `translate3d(${x - cursorTrail.offsetWidth / 2}px, ${y - cursorTrail.offsetHeight / 2}px, 0)`,
-          },
-          {
-            fill: "forwards",
-          },
-        );
-      }, 5 * i);
+      cursorTrailRef.current.map((cursorTrail, i) => {
+        setTimeout(() => {
+          if (!cursorTrail) return;
+          cursorTrail.animate(
+            {
+              transform: `translate3d(${x - cursorTrail.offsetWidth / 2}px, ${y - cursorTrail.offsetHeight / 2}px, 0)`,
+            },
+            {
+              fill: "forwards",
+            },
+          );
+        }, 5 * i);
+      });
     });
-  }, [x, y]);
+  }, []);
 
   return (
     <>
