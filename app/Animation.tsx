@@ -3,11 +3,25 @@
 import React, { MouseEvent, useEffect, useRef, useState } from "react";
 import { Tile } from "./Tile";
 import { Cursor } from "./Cursor";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 export const Animation = () => {
   const [mouseX, setMouseX] = useState(window.innerWidth / 2);
   const [mouseY, setMouseY] = useState(window.innerHeight / 2);
   const slidingWindow = useRef<HTMLDivElement>(null);
+  gsap.registerPlugin(useGSAP);
+
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        slidingWindow.current,
+        { opacity: 0 },
+        { opacity: 1, delay: 1 },
+      );
+    },
+    { scope: slidingWindow },
+  );
 
   useEffect(() => {
     if (!slidingWindow.current) {
@@ -42,10 +56,10 @@ export const Animation = () => {
   };
 
   return (
-    <div onMouseMove={handleMouseMove}>
+    <div className="window" onMouseMove={handleMouseMove}>
       <div
         id="sliding-window"
-        className="animate-fade absolute h-[140vmax] w-[140vmax] -translate-x-[15%] -translate-y-[30%]"
+        className="absolute h-[140vmax] w-[140vmax] -translate-x-[15%] -translate-y-[30%]"
         ref={slidingWindow}
       >
         <Tile

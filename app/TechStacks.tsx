@@ -10,6 +10,7 @@ import {
   SiNodedotjs,
   SiTypescript,
   SiAmazonaws,
+  SiSupabase,
 } from "react-icons/si";
 import usePrefersReducedMotion from "@/hooks/usePrefersReducedMotion";
 import gsap from "gsap";
@@ -20,7 +21,7 @@ const iconItems = {
   react: <SiReact />,
   tailwind: <SiTailwindcss />,
   aws: <SiAmazonaws />,
-  nodejs: <SiNodedotjs />,
+  supabase: <SiSupabase />,
   typescript: <SiTypescript />,
 } as const;
 
@@ -29,7 +30,7 @@ const icons = [
   "react",
   "tailwind",
   "aws",
-  "nodejs",
+  "supabase",
   "typescript",
 ] as const;
 
@@ -40,13 +41,25 @@ export const TechStacks = () => {
 
   useGSAP(
     () => {
-      // if (prefersReducedMotion) {
-      //   return;
-      // }
+      gsap.fromTo(
+        container.current,
+        {
+          opacity: 0,
+          y: 100,
+          ease: "power2.in",
+        },
+        {
+          opacity: 1,
+          y: 0,
+          delay: 3,
+          duration: 2,
+        },
+      );
 
       const tl = gsap.timeline({
         repeat: -1,
         defaults: { ease: "power2.inOut" },
+        delay: 4,
       });
 
       tl.to(".pulsing-logo", {
@@ -114,7 +127,7 @@ export const TechStacks = () => {
   );
   return (
     <div
-      className="fixed bottom-[5%] left-1/2 z-40 flex -translate-x-1/2 scale-75 flex-col items-center md:scale-100"
+      className="pointer-events-none fixed bottom-[5%] left-1/2 z-40 flex -translate-x-1/2 scale-75 flex-col items-center md:scale-100"
       ref={container}
     >
       <div className="flex items-center">
@@ -123,13 +136,13 @@ export const TechStacks = () => {
             <React.Fragment key={index}>
               {index === Math.floor(icons.length / 2) && (
                 <>
-                  <div className="glass-container rounded-sm">
+                  <div className="glass-container rounded-sm bg-slate-300/5">
                     <ExoticaLogo />
                   </div>
                   <div className="signal-line hidden rotate-180 bg-gradient-to-t md:block" />
                 </>
               )}
-              <div className="pulsing-icon flex aspect-square shrink-0 items-center justify-center rounded-full border border-blue-50/30 bg-blue-50/25 p-3 text-3xl text-blue-100 opacity-40 md:text-4xl lg:text-5xl">
+              <div className="pulsing-icon hidden aspect-square shrink-0 items-center justify-center rounded-full border border-blue-50/30 bg-blue-50/25 p-3 text-3xl text-blue-100 opacity-40 sm:flex md:text-4xl lg:text-5xl">
                 {iconItems[icon]}
               </div>
               {index !== icons.length - 1 && (

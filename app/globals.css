@@ -27,3 +27,14 @@
   );
   background-size: 400% 400%;
 }
+
+.cursor,
+.cursor-trail {
+  opacity: 0;
+  transition: opacity 500ms ease;
+}
+
+.window:hover > .cursor,
+.window:hover > .cursor-trail {
+  opacity: 1;
+}

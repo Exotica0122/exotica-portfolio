@@ -1,6 +1,7 @@
 "use client";
 
 import clsx from "clsx";
+import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
 
 export type CursorProps = {
@@ -8,7 +9,7 @@ export type CursorProps = {
   y: number;
 };
 
-const cursorTrails = [...Array(10)];
+const cursorTrails = [...Array(20)];
 
 export const Cursor = ({ x, y }: CursorProps) => {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -17,35 +18,38 @@ export const Cursor = ({ x, y }: CursorProps) => {
 
   useEffect(() => {
     window.addEventListener("mousedown", () => {
-      console.log("down");
-
       setClicked(true);
     });
 
     window.addEventListener("mouseup", () => {
       setClicked(false);
     });
-
-    if (!cursorRef.current || !cursorTrailRef.current) return;
-
-    cursorRef.current.animate({ opacity: 1 }, { delay: 100 });
-    // cursorRef.current.style.opacity = "1";
-
-    // cursorTrailRef.current.forEach((trail) => {
-    //   if (trail) trail.style.opacity = "1";
-    // });
   }, []);
 
   useEffect(() => {
     if (!cursorRef.current || !cursorTrailRef.current) return;
 
-    cursorRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    cursorRef.current.animate(
+      {
+        transform: `translate3d(${x - cursorRef.current.offsetWidth / 2}px, ${y - cursorRef.current.offsetHeight / 2}px, 0)`,
+      },
+      {
+        fill: "forwards",
+      },
+    );
 
     cursorTrailRef.current.map((cursorTrail, i) => {
       setTimeout(() => {
         if (!cursorTrail) return;
-        cursorTrail.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-      }, 10 * i);
+        cursorTrail.animate(
+          {
+            transform: `translate3d(${x - cursorTrail.offsetWidth / 2}px, ${y - cursorTrail.offsetHeight / 2}px, 0)`,
+          },
+          {
+            fill: "forwards",
+          },
+        );
+      }, 5 * i);
     });
   }, [x, y]);
 
@@ -53,7 +57,7 @@ export const Cursor = ({ x, y }: CursorProps) => {
     <>
       <div
         className={clsx(
-          "pointer-events-none fixed z-50 h-5 w-5 rounded-full blur-[3px] transition-opacity duration-500",
+          "cursor pointer-events-none fixed left-0 top-0 z-50 h-5 w-5 rounded-full blur-[3px] transition-opacity duration-500",
           clicked ? "bg-emerald-400 " : "bg-slate-300",
         )}
         ref={cursorRef}
@@ -62,7 +66,7 @@ export const Cursor = ({ x, y }: CursorProps) => {
         <div
           key={i}
           className={clsx(
-            "pointer-events-none fixed z-50 h-5 w-5 rounded-full blur-[3px]",
+            "cursor-trail pointer-events-none fixed left-0 top-0 z-50 h-3 w-3 rounded-full blur-[3px]",
             clicked ? "bg-emerald-400 " : "bg-slate-300",
           )}
           ref={(el) => (cursorTrailRef.current[i] = el)}

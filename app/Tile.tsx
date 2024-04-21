@@ -23,7 +23,7 @@ export const Tile = ({
   return (
     <Link
       className={clsx(
-        `animate-fade peer absolute -translate-x-1/2 -translate-y-1/2 rounded-sm duration-200 ease-in-out hover:scale-110`,
+        `peer absolute -translate-x-1/2 -translate-y-1/2 rounded-sm duration-200 ease-in-out hover:scale-110`,
         position,
       )}
       href="/"
