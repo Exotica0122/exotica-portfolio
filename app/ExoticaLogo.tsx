@@ -8,6 +8,7 @@ export const ExoticaLogo = () => {
       viewBox="0 0 75 92"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="pulsing-logo"
     >
       <g clip-path="url(#clip0_304_11)" filter="url(#filter0_i_304_11)">
         <path

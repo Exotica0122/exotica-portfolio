@@ -1,10 +1,8 @@
 "use client";
 
-import { MouseEvent, useEffect, useRef, useState } from "react";
+import React, { MouseEvent, useEffect, useRef, useState } from "react";
 import { Tile } from "./Tile";
 import { Cursor } from "./Cursor";
-import clsx from "clsx";
-import { ExoticaLogo } from "./ExoticaLogo";
 
 export const Animation = () => {
   const [mouseX, setMouseX] = useState(window.innerWidth / 2);
@@ -50,7 +48,7 @@ export const Animation = () => {
         className="animate-fade absolute h-[140vmax] w-[140vmax] -translate-x-[15%] -translate-y-[30%]"
         ref={slidingWindow}
       >
-        {/* <Tile
+        <Tile
           src={
             "https://images.unsplash.com/photo-1713453321322-28ef26986cc0?q=80&w=2894&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           }
@@ -59,13 +57,8 @@ export const Animation = () => {
           height={10}
           glassColor="bg-slate-500/10"
           position="left-[50%] top-[50%]"
-        /> */}
-        <div className="animate-fade absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 rounded-sm">
-          <div className={clsx("glass-container rounded-sm")}>
-            <ExoticaLogo />
-          </div>
-        </div>
-        {/* <Tile
+        />
+        <Tile
           src={
             "https://images.unsplash.com/photo-1713453321322-28ef26986cc0?q=80&w=2894&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           }
@@ -94,7 +87,7 @@ export const Animation = () => {
           height={10}
           glassColor="bg-slate-500/10"
           position="left-[50%] top-[50%]"
-        /> */}
+        />
       </div>
       <Cursor x={mouseX} y={mouseY} />
     </div>
