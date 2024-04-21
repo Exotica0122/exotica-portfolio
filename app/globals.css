@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  cursor: none;
+}
+
+.glass-container {
+  position: relative;
+}
+
+.glass-container::before {
+  @apply absolute -inset-[10px] -z-10 rounded-xl border border-slate-100/20  backdrop-blur-md;
+  content: "";
+}
