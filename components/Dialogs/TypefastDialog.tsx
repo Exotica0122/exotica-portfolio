@@ -19,14 +19,14 @@ export const TypefastDialog = () => {
 
         <div className="flex items-center justify-start gap-4">
           <Link
-            href="https://osu.ppy.sh/users/9710804"
+            href="https://typefast-exotica.vercel.app"
             target="_blank"
             className="underline hover:text-emerald-600"
           >
             Visit
           </Link>
           <Link
-            href="https://osu.ppy.sh/users/9710804"
+            href="https://github.com/Exotica0122/Typefast"
             target="_blank"
             className="underline hover:text-emerald-600"
           >
