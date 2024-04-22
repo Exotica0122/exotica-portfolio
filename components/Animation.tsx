@@ -54,10 +54,10 @@ export const Animation = () => {
         transform: `translate(${panX}px, ${panY}px)`,
       },
       {
-        duration: 4000,
+        duration: 1500,
         fill: "forwards",
         easing: "ease",
-        delay: 100,
+        delay: 50,
       },
     );
   }, [mouseX, mouseY]);
