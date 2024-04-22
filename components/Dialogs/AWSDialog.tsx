@@ -12,7 +12,7 @@ export const AWSDialog = () => {
       <DialogHeader>
         <DialogTitle>AWS Develop Associate</DialogTitle>
         <DialogDescription className="my-8">
-          My very very proud AWS Develop Associate certification.
+          My very very proud AWS Developer Associate certification.
         </DialogDescription>
         <Link
           href="https://www.credly.com/badges/744cc198-6d12-41c1-bf2f-1dd46f32f703"
