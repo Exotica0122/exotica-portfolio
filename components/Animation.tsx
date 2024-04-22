@@ -136,9 +136,7 @@ export const Animation = () => {
           height={100}
           glassColor="bg-slate-500/10"
           position="left-[25%] top-[20%]"
-        >
-          <OsuDialog />
-        </Tile>
+        />
 
         <Tile
           src={"/images/aut-logo.jpeg"}
