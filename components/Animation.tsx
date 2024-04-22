@@ -60,10 +60,10 @@ export const Animation = () => {
         transform: `translate(${panX}px, ${panY}px)`,
       },
       {
-        duration: 1500,
+        duration: 750,
         fill: "forwards",
         easing: "ease",
-        delay: 50,
+        delay: 10,
       },
     );
   }, [mouseX, mouseY]);
@@ -197,11 +197,6 @@ export const Animation = () => {
           position="left-[60%] top-[90%]"
           glassColor="bg-blue-500/50 hover:bg-blue-500"
         />
-        {/* <FillerTile
-          className="h-36 w-24"
-          position="left-[15%] top-[90%]"
-          glassColor="bg-cyan-500/50 hover:bg-cyan-500"
-        /> */}
       </div>
       <Cursor />
     </div>

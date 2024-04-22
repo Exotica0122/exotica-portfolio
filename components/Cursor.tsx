@@ -10,6 +10,33 @@ export const Cursor = () => {
   const cursorTrailRef = useRef<HTMLDivElement[] | null[]>([]);
   const [clicked, setClicked] = useState(false);
 
+  const animationCursor = (x: number, y: number) => {
+    if (!cursorRef.current || !cursorTrailRef.current) return;
+
+    cursorRef.current.animate(
+      {
+        transform: `translate3d(${x - cursorRef.current.offsetWidth / 2}px, ${y - cursorRef.current.offsetHeight / 2}px, 0)`,
+      },
+      {
+        fill: "forwards",
+      },
+    );
+
+    cursorTrailRef.current.map((cursorTrail, i) => {
+      setTimeout(() => {
+        if (!cursorTrail) return;
+        cursorTrail.animate(
+          {
+            transform: `translate3d(${x - cursorTrail.offsetWidth / 2}px, ${y - cursorTrail.offsetHeight / 2}px, 0)`,
+          },
+          {
+            fill: "forwards",
+          },
+        );
+      }, 5 * i);
+    });
+  };
+
   useEffect(() => {
     window.addEventListener("mousedown", () => {
       setClicked(true);
@@ -20,31 +47,13 @@ export const Cursor = () => {
     });
 
     window.addEventListener("mousemove", (e) => {
-      if (!cursorRef.current || !cursorTrailRef.current) return;
       const { x, y } = e;
+      void animationCursor(x, y);
+    });
 
-      cursorRef.current.animate(
-        {
-          transform: `translate3d(${x - cursorRef.current.offsetWidth / 2}px, ${y - cursorRef.current.offsetHeight / 2}px, 0)`,
-        },
-        {
-          fill: "forwards",
-        },
-      );
-
-      cursorTrailRef.current.map((cursorTrail, i) => {
-        setTimeout(() => {
-          if (!cursorTrail) return;
-          cursorTrail.animate(
-            {
-              transform: `translate3d(${x - cursorTrail.offsetWidth / 2}px, ${y - cursorTrail.offsetHeight / 2}px, 0)`,
-            },
-            {
-              fill: "forwards",
-            },
-          );
-        }, 5 * i);
-      });
+    window.addEventListener("touchmove", (e) => {
+      const { clientX: x, clientY: y } = e.touches[0];
+      void animationCursor(x, y);
     });
   }, []);
 
