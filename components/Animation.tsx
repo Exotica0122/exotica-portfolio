@@ -1,6 +1,12 @@
 "use client";
 
-import React, { MouseEvent, useEffect, useRef, useState } from "react";
+import React, {
+  MouseEvent,
+  TouchEvent,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { Tile } from "./Tile";
 import { Cursor } from "./Cursor";
 import { useGSAP } from "@gsap/react";
@@ -67,8 +73,18 @@ export const Animation = () => {
     setMouseY(e.clientY);
   };
 
+  const handleTouchMove = (e: TouchEvent<HTMLDivElement>) => {
+    const { clientX, clientY } = e.touches[0];
+    setMouseX(clientX);
+    setMouseY(clientY);
+  };
+
   return (
-    <div className="window" onMouseMove={handleMouseMove}>
+    <div
+      className="window"
+      onMouseMove={handleMouseMove}
+      onTouchMove={handleTouchMove}
+    >
       <div
         id="sliding-window"
         className="absolute h-[140vmax] w-[140vmax] -translate-x-[15%] -translate-y-[30%]"
