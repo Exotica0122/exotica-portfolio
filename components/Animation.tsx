@@ -14,10 +14,15 @@ import { TypefastDialog } from "./Dialogs/TypefastDialog";
 import { FinappsterDialog } from "./Dialogs/FinappsterDialog";
 
 export const Animation = () => {
-  const [mouseX, setMouseX] = useState(window.innerWidth / 2);
-  const [mouseY, setMouseY] = useState(window.innerHeight / 2);
+  const [mouseX, setMouseX] = useState(0);
+  const [mouseY, setMouseY] = useState(0);
   const slidingWindow = useRef<HTMLDivElement>(null);
   gsap.registerPlugin(useGSAP);
+
+  useEffect(() => {
+    setMouseX(window.innerWidth / 2);
+    setMouseY(window.innerHeight / 2);
+  }, []);
 
   useGSAP(
     () => {
