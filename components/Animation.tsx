@@ -5,6 +5,13 @@ import { Tile } from "./Tile";
 import { Cursor } from "./Cursor";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { OsuDialog } from "./Dialogs/OsuDialog";
+import { FillerTile } from "./FillerTile";
+import { AWSDialog } from "./Dialogs/AWSDialog";
+import { ProfileDialog } from "./Dialogs/ProfileDialog";
+import { AUTDialog } from "./Dialogs/AUTDialog";
+import { TypefastDialog } from "./Dialogs/TypefastDialog";
+import { FinappsterDialog } from "./Dialogs/FinappsterDialog";
 
 export const Animation = () => {
   const [mouseX, setMouseX] = useState(window.innerWidth / 2);
@@ -63,45 +70,119 @@ export const Animation = () => {
         ref={slidingWindow}
       >
         <Tile
-          src={
-            "https://images.unsplash.com/photo-1713453321322-28ef26986cc0?q=80&w=2894&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          }
-          alt="Living Room"
-          width={200}
-          height={10}
+          src={"/images/osu-logo.png"}
+          alt="osu"
+          width={100}
+          height={100}
           glassColor="bg-slate-500/10"
-          position="left-[50%] top-[50%]"
-        />
+          position="left-[75%] top-[40%]"
+        >
+          <OsuDialog />
+        </Tile>
+
         <Tile
-          src={
-            "https://images.unsplash.com/photo-1713453321322-28ef26986cc0?q=80&w=2894&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          }
-          alt="Living Room"
-          width={200}
-          height={10}
+          src={"/images/aws-developer-associate.png"}
+          alt="aws developer associate"
+          width={100}
+          height={100}
           glassColor="bg-slate-500/10"
-          position="left-[45%] top-[45%]"
-        />
+          position="left-[25%] top-[60%]"
+        >
+          <AWSDialog />
+        </Tile>
+
         <Tile
-          src={
-            "https://images.unsplash.com/photo-1713453321322-28ef26986cc0?q=80&w=2894&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          }
-          alt="Living Room"
+          src={"/images/typefast.png"}
+          alt="Typefast"
           width={200}
-          height={10}
+          height={100}
           glassColor="bg-slate-500/10"
-          position="left-[30%] top-[30%]"
-        />
+          position="left-[50%] top-[35%]"
+        >
+          <TypefastDialog />
+        </Tile>
+
         <Tile
-          src={
-            "https://images.unsplash.com/photo-1713453321322-28ef26986cc0?q=80&w=2894&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          }
-          alt="Living Room"
-          width={200}
-          height={10}
+          src={"/images/finappster.png"}
+          alt="finappster"
+          width={400}
+          height={200}
           glassColor="bg-slate-500/10"
-          position="left-[50%] top-[50%]"
+          position="left-[20%] top-[40%]"
+        >
+          <FinappsterDialog />
+        </Tile>
+
+        <Tile
+          src={"/images/peter.jpeg"}
+          alt="me"
+          width={100}
+          height={100}
+          glassColor="bg-slate-500/10"
+          position="left-[50%] top-[63%]"
+        >
+          <ProfileDialog />
+        </Tile>
+
+        <Tile
+          src={"/images/covid-bot.png"}
+          alt="AUT"
+          width={100}
+          height={100}
+          glassColor="bg-slate-500/10"
+          position="left-[25%] top-[20%]"
+        >
+          <OsuDialog />
+        </Tile>
+
+        <Tile
+          src={"/images/aut-logo.jpeg"}
+          alt="AUT"
+          width={100}
+          height={100}
+          glassColor="bg-slate-500/10"
+          position="left-[75%] top-[60%]"
+        >
+          <AUTDialog />
+        </Tile>
+
+        {/* Filler tiles */}
+        <FillerTile
+          className="h-36 w-24"
+          position="left-[85%] top-[25%]"
+          glassColor="bg-emerald-500/50 hover:bg-emerald-500"
         />
+        <FillerTile
+          className="h-36 w-44"
+          position="left-[15%] top-[75%]"
+          glassColor="bg-red-500/50 hover:bg-red-500"
+        />
+        <FillerTile
+          className="h-52 w-52"
+          position="left-[80%] top-[85%]"
+          glassColor="bg-orange-500/50 hover:bg-orange-500"
+        />
+
+        <FillerTile
+          className="h-32 w-80"
+          position="left-[65%] top-[15%]"
+          glassColor="bg-rose-500/50 hover:bg-rose-500"
+        />
+        <FillerTile
+          className="h-20 w-44"
+          position="left-[35%] top-[90%]"
+          glassColor="bg-pink-500/50 hover:bg-pink-500"
+        />
+        <FillerTile
+          className="h-36 w-56"
+          position="left-[60%] top-[90%]"
+          glassColor="bg-blue-500/50 hover:bg-blue-500"
+        />
+        {/* <FillerTile
+          className="h-36 w-24"
+          position="left-[15%] top-[90%]"
+          glassColor="bg-cyan-500/50 hover:bg-cyan-500"
+        /> */}
       </div>
       <Cursor />
     </div>

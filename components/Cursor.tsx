@@ -52,7 +52,7 @@ export const Cursor = () => {
     <>
       <div
         className={clsx(
-          "cursor pointer-events-none fixed left-0 top-0 z-50 h-5 w-5 rounded-full blur-[3px] transition-opacity duration-500",
+          "cursor pointer-events-none fixed left-0 top-0 z-[100] h-5 w-5 rounded-full blur-[3px] transition-opacity duration-500",
           clicked ? "bg-emerald-400 " : "bg-slate-300",
         )}
         ref={cursorRef}
@@ -61,7 +61,7 @@ export const Cursor = () => {
         <div
           key={i}
           className={clsx(
-            "cursor-trail pointer-events-none fixed left-0 top-0 z-50 h-3 w-3 rounded-full blur-[3px]",
+            "cursor-trail pointer-events-none fixed left-0 top-0 z-[100] h-3 w-3 rounded-full blur-[3px]",
             clicked ? "bg-emerald-400 " : "bg-slate-300",
           )}
           ref={(el) => (cursorTrailRef.current[i] = el)}
