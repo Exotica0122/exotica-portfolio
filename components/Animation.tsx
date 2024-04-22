@@ -99,8 +99,8 @@ export const Animation = () => {
         <Tile
           src={"/images/typefast.png"}
           alt="Typefast"
-          width={200}
-          height={100}
+          width={400}
+          height={200}
           glassColor="bg-slate-500/10"
           position="left-[50%] top-[35%]"
         >
@@ -110,8 +110,8 @@ export const Animation = () => {
         <Tile
           src={"/images/finappster.png"}
           alt="finappster"
-          width={400}
-          height={200}
+          width={200}
+          height={100}
           glassColor="bg-slate-500/10"
           position="left-[20%] top-[40%]"
         >
