@@ -50,6 +50,7 @@ export const Tile = ({
               alt={alt}
               width={width}
               height={height}
+              draggable={false}
               className="h-full w-full select-none rounded-sm object-cover opacity-25 blur-sm transition duration-700 hover:opacity-100 hover:blur-none"
             />
           </div>
