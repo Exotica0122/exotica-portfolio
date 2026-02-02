@@ -1,19 +1,25 @@
 ---
 const { url, title, description, date, imageUrl } = Astro.props;
+
+const formattedDate = new Date(date).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
 ---
 
 <div
-  class="mx-4 rounded-xl bg-gray-900 p-6 outline-2 hover:outline hover:outline-offset-2"
+  class='mx-4 rounded-xl bg-gray-900 p-6 outline-2 hover:outline hover:outline-offset-2'
 >
   <a
     href={url}
-    class="flex flex-col items-center justify-center gap-6 sm:flex-row"
+    class='flex flex-col items-center justify-center gap-6 sm:flex-row'
   >
-    <img src={imageUrl} class="m-2 w-80 sm:w-48" />
-    <div class="items-stretchf flex h-auto flex-col content-between">
-      <h1 class="text-2xl font-bold">{title}</h1>
+    <img src={imageUrl} class='m-2 w-80 sm:w-48' />
+    <div class='items-stretchf flex h-auto flex-col content-between'>
+      <h1 class='text-2xl font-bold'>{title}</h1>
       <p>{description}</p>
-      <p class="mt-2 text-end font-thin italic">{date}</p>
+      <p class='mt-2 text-end font-thin italic'>{formattedDate}</p>
     </div>
   </a>
 </div>
