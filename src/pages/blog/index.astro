@@ -1,13 +1,12 @@
 ---
-import MainLayout from "../../components/MainLayout.astro";
-import BlogCard from "../../components/blog/BlogCard.astro";
+import MainLayout from '../../components/MainLayout.astro';
+import BlogCard from '../../components/blog/BlogCard.astro';
 
-const allPosts = await Astro.glob("./*.md");
+const allPosts = await Astro.glob('./*.md');
 ---
 
 <MainLayout>
-  <p>In Progress...</p>
-  <!-- {
+  {
     allPosts.map((post) => {
       return (
         <BlogCard
@@ -19,5 +18,5 @@ const allPosts = await Astro.glob("./*.md");
         />
       );
     })
-  } -->
+  }
 </MainLayout>
