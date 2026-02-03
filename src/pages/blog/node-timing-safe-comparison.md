@@ -44,7 +44,7 @@ The problem is that `===` short-circuits on the first mismatched character. Atta
 
 ## Timing Attack Example
 
-String comparisons are frequently needed for authorization checks—validating JWT tokens, API keys, etc.
+String comparisons are frequently needed for authorization checks, such as validating JWT tokens, API keys, etc.
 
 Attackers can send multiple requests, measuring response times to incrementally guess the secret:
 
