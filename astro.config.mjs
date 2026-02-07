@@ -8,7 +8,9 @@ import react from "@astrojs/react";
 
 import expressiveCode from 'astro-expressive-code';
 
+import icon from 'astro-icon';
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [expressiveCode(), tailwind(), react()]
+  integrations: [expressiveCode(), tailwind(), react(), icon()]
 });
