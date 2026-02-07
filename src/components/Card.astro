@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import Button from "./Button.astro";
 
 const {
@@ -29,7 +29,7 @@ const {
             target="_blank"
             class="absolute bottom-[-0.75rem] right-[-0.75rem] rounded-full bg-gradient-to-tl from-red-500 to-orange-400 p-1 transition-transform hover:scale-125"
           >
-            <Icon name={icon} class="w-8" />
+            <Icon name={icon} size={32} />
           </a>
         )
       }
