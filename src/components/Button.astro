@@ -10,8 +10,8 @@ interface ButtonProps {
 const { icon, iconSide, size = "md" } = Astro.props as ButtonProps;
 let iconSize: number;
 
-if (size == "sm") iconSize = 8;
-else if (size == "md") iconSize = 20;
+if (size === "sm") iconSize = 8;
+else if (size === "md") iconSize = 20;
 else iconSize = 28;
 ---
 
