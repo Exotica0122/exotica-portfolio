@@ -7,7 +7,13 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check": "pnpx @biomejs/biome check",
+    "check:write": "pnpx @biomejs/biome check --write",
+    "format": "pnpx @biomejs/biome format",
+    "format:write": "pnpx @biomejs/biome format --write",
+    "lint": "pnpx @biomejs/biome lint",
+    "lint:write": "pnpx @biomejs/biome lint --write"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
