@@ -1,0 +1,104 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+
+% Minimal styling
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+% Section formatting
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{1em}{0.5em}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    pdfborder={0 0 0}
+}
+
+\begin{document}
+
+% Header
+{\LARGE \textbf{Jekyoung An}}
+
+\vspace{0.3em}
+
+{\large Intermediate Full Stack Engineer} \hfill Auckland, New Zealand
+
+\vspace{0.5em}
+
+\href{mailto:anpeteran2@gmail.com}{anpeteran2@gmail.com}
+\hfill \href{https://exoticasoftware.dev}{Personal Website} $\cdot$
+\href{https://github.com/Exotica0122}{GitHub} $\cdot$
+\href{https://linkedin.com/in/peteransoftware}{LinkedIn}
+
+\section*{Work Experience}
+
+\textbf{Intermediate Full Stack Engineer} \hfill 03/2025 -- Present
+
+\textit{IDEXX, Auckland, New Zealand}
+
+\begin{itemize}[leftmargin=1.5em, itemsep=0.2em]
+    \item Rewrote poorly architected service in Go, improving maintainability, performance, and reducing on-call incidents
+    \item Resolved timezone calculation bug affecting 800K appointments (20\% total)
+    \item Owned domain end-to-end, designing REST APIs and coordinating cross-team feature delivery
+    \item Led design discussions and technical initiatives to improve system reliability, performance, and reduce technical debt
+\end{itemize}
+
+\textbf{Full Stack Engineer} \hfill 06/2023 -- 03/2025
+
+\textit{IDEXX / ezyVet, Auckland, New Zealand}
+
+\begin{itemize}[leftmargin=1.5em, itemsep=0.2em]
+    \item Resolved Twilio UK regulatory compliance issues by implementing business information onboarding feature
+    \item Resolved rate limiting issues for partner integrations using Lambda and SQS queue-based ingestion
+    \item Mentored engineers on AWS and cloud infrastructure, transitioned across teams to provide frontend expertise
+\end{itemize}
+
+\textbf{Full Stack Developer Intern} \hfill 11/2022 -- 02/2023
+
+\textit{ezyVet, Auckland, New Zealand}
+
+\begin{itemize}[leftmargin=1.5em, itemsep=0.2em]
+    \item Extracted API documentation from monolith into standalone service with automated build pipeline and S3 hosting
+    \item Resolved critical production bug blocking invoice unapproval and financial transactions
+    \item Built data export automation tool (React, FastAPI), reducing export time by 20 minutes
+    \item Developed integration test suite for monolith to catch pipeline errors
+\end{itemize}
+
+\section*{Education}
+
+\textbf{Bachelor of Computer and Information Sciences (Software Development)}
+
+\textit{Auckland University of Technology} \hfill 2021 -- 2023
+
+\section*{Skills}
+
+\textbf{Languages:} TypeScript, JavaScript, PHP, Python, Go, Kotlin
+
+\textbf{Frontend:} React, NextJS, Astro, Tailwind, HTML/CSS
+
+\textbf{Backend:} NestJS, ExpressJS, FastAPI, Go, Spring Boot, NodeJS
+
+\textbf{Cloud \& Infrastructure:} AWS, Terraform, Docker, GitHub Actions, GitLab CI/CD
+
+\textbf{Databases \& Messaging:} MySQL, PostgreSQL, Kafka
+
+\textbf{Development Environment:} Neovim, Emacs, Tmux, Cursor, VS Code
+
+\textbf{AI Tools:} Cursor, OpenCode, ChatGPT, Claude
+
+\section*{Certifications}
+
+\textbf{AWS Certified Developer -- Associate} \hfill 11/2023 -- 11/2026
+
+\textbf{AZ-900: Microsoft Azure Fundamentals} \hfill 06/2021
+
+\end{document}

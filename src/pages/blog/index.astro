@@ -1,22 +1,54 @@
 ---
-import MainLayout from '../../components/MainLayout.astro';
-import BlogCard from '../../components/blog/BlogCard.astro';
+import PageShell from '../../layouts/PageShell.astro';
+import { BlogHeader } from '../../components/blog/BlogHeader';
+import { Footer } from '../../components/Footer';
 
-const allPosts = await Astro.glob('./*.md');
+const postModules = import.meta.glob('./*.md', { eager: true });
+
+const posts = Object.values(postModules)
+  .map((mod: any) => ({
+    url: mod.url,
+    title: mod.frontmatter.title,
+    description: mod.frontmatter.description,
+    date: new Date(mod.frontmatter.date),
+  }))
+  .sort((a, b) => b.date.getTime() - a.date.getTime());
 ---
 
-<MainLayout>
-  {
-    allPosts.map((post) => {
-      return (
-        <BlogCard
-          url={post.url}
-          title={post.frontmatter.title}
-          description={post.frontmatter.description}
-          imageUrl={post.frontmatter.imageUrl}
-          date={post.frontmatter.date}
-        />
-      );
-    })
-  }
-</MainLayout>
+<PageShell title="Blog — Peter An" description="Notes on security, backend engineering, and the occasional timing bug.">
+	<BlogHeader client:load />
+	<main>
+		<div class="mx-auto max-w-[760px] px-8 py-20">
+			<span class="inline-flex items-center gap-2.5 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-ink-muted">
+				<span class="font-mono font-medium text-pink-text-safe">Blog</span>
+			</span>
+			<h1 class="mt-3.5 font-sans text-[40px] font-bold leading-[1.18] tracking-[-0.01em] text-ink">Writing</h1>
+			<p class="mt-3 max-w-[56ch] font-sans text-[17px] text-ink-muted">
+				Notes on security, backend engineering, and whatever else I run into while shipping.
+			</p>
+
+			<ul class="mt-14 flex flex-col divide-y divide-border border-t border-border">
+				{posts.map((post) => (
+					<li>
+						<a
+							href={post.url}
+							class="group flex flex-col gap-1.5 py-7 no-underline transition-colors hover:no-underline"
+						>
+							<time datetime={post.date.toISOString()} class="font-mono text-[11.5px] uppercase tracking-[0.14em] text-ink-muted">
+								{post.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+							</time>
+							<h2 class="font-sans text-2xl font-bold leading-snug tracking-[-0.01em] text-ink transition-colors group-hover:text-magenta">
+								{post.title}
+							</h2>
+							<p class="font-sans text-[15px] text-ink-muted">{post.description}</p>
+						</a>
+					</li>
+				))}
+				{posts.length === 0 && (
+					<li class="py-7 font-sans text-[15px] text-ink-muted">No posts yet — check back soon.</li>
+				)}
+			</ul>
+		</div>
+	</main>
+	<Footer />
+</PageShell>

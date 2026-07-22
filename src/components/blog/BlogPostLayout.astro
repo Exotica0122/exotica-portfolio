@@ -1,61 +1,153 @@
 ---
-import MainLayout from '../MainLayout.astro';
+import PageShell from '../../layouts/PageShell.astro';
+import { BlogHeader } from './BlogHeader';
+import { Footer } from '../Footer';
 
 const { frontmatter } = Astro.props;
+const { title, description, date } = frontmatter;
+
+const dateLabel = new Date(date).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
 ---
 
-<MainLayout title={frontmatter.title}>
-  <div
-    class='blog-content break-words bg-white px-6 py-12 text-black shadow-inner xl:px-12'
-  >
-    <h1>{frontmatter.title}</h1>
-    {
-      frontmatter.imageUrl && (
-        <img src={frontmatter.imageUrl} alt={frontmatter.title} class='mt-8' />
-      )
-    }
-    <slot />
-  </div>
-</MainLayout>
+<PageShell title={`${title} — Peter An`} description={description}>
+	<BlogHeader client:load />
+	<main>
+		<article class="mx-auto max-w-[720px] px-8 py-20">
+			<a href="/blog" class="inline-flex items-center gap-1.5 font-sans text-[13px] font-semibold text-ink-muted transition-colors hover:text-magenta hover:no-underline">
+				<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M11 17l-5-5 5-5M6 12h12" /></svg>
+				All posts
+			</a>
 
-<style is:global lang='scss'>
-  .blog-content {
-    @apply leading-relaxed;
+			<header class="mt-6 mb-12 border-b border-border pb-8">
+				<time datetime={new Date(date).toISOString()} class="font-mono text-[11.5px] uppercase tracking-[0.14em] text-ink-muted">
+					{dateLabel}
+				</time>
+				<h1 class="mt-3 font-sans text-[40px] font-bold leading-[1.15] tracking-[-0.01em] text-ink">{title}</h1>
+				<p class="mt-3 font-sans text-[17px] text-ink-muted">{description}</p>
+			</header>
 
-    h1 {
-      @apply mt-8 text-center text-5xl font-bold leading-tight first:mt-0;
-    }
-    h2 {
-      @apply mt-12 text-xl font-bold sm:text-2xl;
-    }
-    h3 {
-      @apply mt-4 text-base font-bold sm:text-lg;
-    }
-    p {
-      @apply my-4;
-    }
-    a {
-      @apply text-purple-400 underline-offset-2 hover:underline;
-    }
-    :not(pre) code {
-      @apply break-words rounded-sm bg-gray-100 px-1 italic;
-    }
-    blockquote {
-      @apply border-l-4 border-red-300 bg-purple-200 p-4 italic shadow-lg;
-    }
-    ul {
-      @apply ml-4 list-inside list-disc;
-    }
-    em {
-      font-weight: 300;
-    }
+			<div class="prose">
+				<slot />
+			</div>
+		</article>
+	</main>
+	<Footer />
+</PageShell>
 
-    .astro-code {
-      @apply py-4 px-3;
-    }
-
-    img {
-      @apply mx-auto my-6 sm:max-w-md md:max-w-md lg:max-w-xl xl:max-w-2xl;
-    }
-  }
+<style>
+	.prose {
+		font-family: var(--font-sans);
+		font-size: 17px;
+		line-height: 1.75;
+		color: var(--ink);
+	}
+	.prose :global(h1),
+	.prose :global(h2),
+	.prose :global(h3) {
+		font-family: var(--font-sans);
+		font-weight: 700;
+		letter-spacing: -0.01em;
+		color: var(--ink);
+		margin-top: 2.2em;
+		margin-bottom: 0.6em;
+	}
+	.prose :global(h1) {
+		font-size: 28px;
+	}
+	.prose :global(h2) {
+		font-size: 24px;
+	}
+	.prose :global(h3) {
+		font-size: 19px;
+	}
+	.prose :global(h1:first-child),
+	.prose :global(h2:first-child) {
+		margin-top: 0;
+	}
+	.prose :global(p) {
+		margin: 1.1em 0;
+	}
+	.prose :global(a) {
+		color: var(--magenta);
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+	.prose :global(a:hover) {
+		color: var(--magenta-dark);
+	}
+	.prose :global(ul),
+	.prose :global(ol) {
+		margin: 1.1em 0;
+		padding-left: 1.4em;
+	}
+	.prose :global(ul) {
+		list-style: disc;
+	}
+	.prose :global(ol) {
+		list-style: decimal;
+	}
+	.prose :global(li) {
+		margin: 0.4em 0;
+	}
+	.prose :global(li)::marker {
+		color: var(--ink-faint);
+	}
+	.prose :global(strong) {
+		font-weight: 700;
+	}
+	.prose :global(code) {
+		font-family: var(--font-mono);
+		font-size: 0.86em;
+		background: var(--card);
+		border: 1px solid var(--border);
+		border-radius: 5px;
+		padding: 0.15em 0.4em;
+	}
+	.prose :global(pre) {
+		font-family: var(--font-mono);
+		font-size: 13.5px;
+		line-height: 1.6;
+		margin: 1.6em 0;
+		padding: 20px 22px;
+		border-radius: var(--radius-md);
+		border: 1px solid var(--border);
+		overflow-x: auto;
+	}
+	.prose :global(pre) :global(code) {
+		background: none;
+		border: none;
+		padding: 0;
+	}
+	.prose :global(blockquote) {
+		margin: 1.6em 0;
+		padding: 0.2em 1.2em;
+		border-left: 3px solid var(--magenta-light);
+		color: var(--ink-muted);
+	}
+	.prose :global(hr) {
+		margin: 2.6em 0;
+		border: none;
+		border-top: 1px solid var(--border);
+	}
+	.prose :global(img) {
+		max-width: 100%;
+		border-radius: var(--radius-md);
+		border: 1px solid var(--border);
+	}
+	.prose :global(table) {
+		width: 100%;
+		border-collapse: collapse;
+		margin: 1.6em 0;
+		font-size: 0.92em;
+	}
+	.prose :global(th),
+	.prose :global(td) {
+		border: 1px solid var(--border);
+		padding: 0.5em 0.8em;
+		text-align: left;
+	}
 </style>
