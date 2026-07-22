@@ -1,0 +1,362 @@
+@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* Dark mode is toggled via [data-theme="dark"] on <html> (persisted in localStorage),
+   not the OS media query — so `dark:` utilities key off that attribute instead. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ── Exotica brand tokens ──────────────────────────────────────────────────
+   One magenta-plum hue family anchored by a pink accent; warm neutrals.
+   Semantic tokens (paper/ink/card/border/...) are redefined under
+   [data-theme="dark"] below, and every Tailwind color utility that points at
+   them (via @theme) flips automatically — no dark: variants needed for color. */
+:root {
+  color-scheme: light;
+
+  --pink: #ffb7ce;
+  --pink-text-safe: #841660;
+  --magenta: #974391;
+  --magenta-light: #d190d4;
+  --magenta-dark: #650c51;
+  --plum: #2d1028;
+  --plum-raised: #3d1838;
+  --plum-border: #4a2244;
+
+  --ink: #13161b;
+  --ink-muted: #5b5560;
+  --ink-faint: #8b8390;
+  --paper: #efe9e4;
+  --card: #faf8f5;
+  --pure: #ffffff;
+  --border: #e7e0d9;
+  --border-strong: #d8cfc6;
+
+  --paper-on-plum: #efe9e4;
+  --muted-on-plum: #c9b9c4;
+  --faint-on-plum: #9a869494;
+
+  --success: #2f7d5b;
+  --success-bg: #e4f0ea;
+  --warning: #b06a12;
+  --warning-bg: #f7ecd9;
+  --danger: #b0264e;
+  --danger-bg: #f7dfe6;
+  --info: #974391;
+  --info-bg: #f3e3f2;
+
+  --focus-ring: color-mix(in srgb, var(--magenta) 55%, transparent);
+
+  /* rhythm-equalizer bar colors — recolored by data-accent */
+  --bar-a: var(--magenta);
+  --bar-b: var(--pink-text-safe);
+  --bar-c: var(--magenta-dark);
+  --accent-word: var(--magenta);
+
+  --density: 1; /* 0.8 / 1 / 1.25 */
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --paper: #150712;
+  --card: #23101f;
+  --pure: #2d1028;
+  --border: #3a1c34;
+  --border-strong: #4d2545;
+
+  --ink: #f1ebe6;
+  --ink-muted: #c6b6c1;
+  --ink-faint: #9a8694;
+
+  --pink-text-safe: #ffb7ce;
+  --magenta: #c274bd;
+
+  --success-bg: color-mix(in srgb, var(--success) 22%, var(--card));
+  --warning-bg: color-mix(in srgb, var(--warning) 22%, var(--card));
+  --danger-bg: color-mix(in srgb, var(--danger) 22%, var(--card));
+  --info-bg: color-mix(in srgb, var(--info) 26%, var(--card));
+}
+
+@theme {
+  --font-sans: 'Manrope', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --color-pink: var(--pink);
+  --color-pink-text-safe: var(--pink-text-safe);
+  --color-magenta: var(--magenta);
+  --color-magenta-light: var(--magenta-light);
+  --color-magenta-dark: var(--magenta-dark);
+  --color-plum: var(--plum);
+  --color-plum-raised: var(--plum-raised);
+  --color-plum-border: var(--plum-border);
+
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-pure: var(--pure);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+
+  --color-paper-on-plum: var(--paper-on-plum);
+  --color-muted-on-plum: var(--muted-on-plum);
+  --color-faint-on-plum: var(--faint-on-plum);
+
+  --color-success: var(--success);
+  --color-success-bg: var(--success-bg);
+  --color-warning: var(--warning);
+  --color-warning-bg: var(--warning-bg);
+  --color-danger: var(--danger);
+  --color-danger-bg: var(--danger-bg);
+  --color-info: var(--info);
+  --color-info-bg: var(--info-bg);
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 22px;
+  --radius-2xl: 28px;
+
+  --shadow-xs: 0 1px 2px rgba(19, 22, 27, 0.05);
+  --shadow-sm: 0 4px 16px rgba(45, 16, 40, 0.07);
+  --shadow-md: 0 12px 40px rgba(45, 16, 40, 0.1);
+  --shadow-lg: 0 12px 40px rgba(45, 16, 40, 0.35);
+
+  --ease-brand: cubic-bezier(0.2, 0, 0, 1);
+
+  --animate-hs-ping: hs-ping 2s ease-out infinite;
+  --animate-caret: caret 1.05s steps(1) infinite;
+  --animate-orbit-pulse: orbit-pulse 3600ms cubic-bezier(0.2, 0, 0, 1) infinite;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+  }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+  }
+  ::selection {
+    background: var(--pink);
+    color: var(--ink);
+  }
+}
+
+/* ── Reveal / entrance transitions ──────────────────────────────────────────
+   Written as plain CSS on purpose: Tailwind v4 moves translate/scale/rotate
+   into their own standalone CSS properties instead of composing them into
+   `transform`, so a Tailwind translate-y-* utility paired with a
+   transform-based `transition`/`animation` silently never fires (the
+   property being watched isn't the one that's changing). Plain `transform`
+   here, on both the base and toggled state, keeps that in one property with
+   no risk of drifting out of sync again.
+
+   .reveal / .reveal-down: toggled by adding .in (JS — either scroll-into-view
+   for section content, or the hero's "played" flag for its intro).
+   .tag-word: the hero's rotating tagline, a 3-state cycle (on / prev / off). */
+@layer components {
+  .reveal,
+  .reveal-down {
+    opacity: 0;
+    transition: opacity 560ms var(--ease-brand), transform 560ms var(--ease-brand);
+  }
+  .reveal {
+    transform: translateY(16px);
+  }
+  .reveal-down {
+    transform: translateY(-16px);
+  }
+  .reveal.in,
+  .reveal-down.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .tag-word {
+    position: absolute;
+    left: 0;
+    top: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    color: var(--magenta);
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 500ms var(--ease-brand), transform 500ms var(--ease-brand);
+  }
+  .tag-word.is-on {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .tag-word.is-prev {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-down {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .tag-word {
+    transition: opacity 200ms linear;
+    transform: none;
+  }
+}
+
+/* ── Keyframes used via the --animate-* theme tokens above, plus the
+   first-visit loader's staged intro (bespoke, single-use — kept as plain CSS
+   rather than forced into Tailwind's utility model). ── */
+@keyframes hs-ping {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--success) 65%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 7px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+@keyframes caret {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes orbit-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* Paired with Tailwind's scale-x-0 / scale-0 utilities, which set the
+   standalone `scale` property in v4 — animating `transform` here instead
+   (as these were originally written) never touches it, so the bars/badge
+   stay permanently scaled to zero and the mark never appears. */
+@keyframes ld-bar-in {
+  from {
+    scale: 0 1;
+    opacity: 0;
+  }
+  to {
+    scale: 1 1;
+    opacity: 1;
+  }
+}
+@keyframes ld-badge-in {
+  from {
+    scale: 0.4;
+    opacity: 0;
+  }
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+@keyframes ld-fade-up {
+  from {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes ld-sub-in {
+  from {
+    letter-spacing: 0;
+    opacity: 0;
+  }
+  to {
+    letter-spacing: 0.22em;
+    opacity: 1;
+  }
+}
+@keyframes ld-ring {
+  0% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.85;
+  }
+  78% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+@keyframes ld-fill {
+  0% {
+    width: 4%;
+  }
+  55% {
+    width: 60%;
+  }
+  100% {
+    width: 90%;
+  }
+}
+@keyframes ld-dots {
+  0% {
+    content: '';
+  }
+  25% {
+    content: '.';
+  }
+  50% {
+    content: '..';
+  }
+  75% {
+    content: '...';
+  }
+}
+
+.ld-cap::after {
+  content: '';
+  animation: ld-dots 1400ms steps(1, end) 1400ms infinite;
+}
+
+/* First-visit loader dismiss state — toggled by a plain inline script once the
+   minimum splash duration has elapsed (see index.astro). */
+#app-loader.done {
+  opacity: 0;
+  visibility: hidden;
+}
+#app-loader.done .ld-fill {
+  width: 100% !important;
+  transition: width 320ms var(--ease-brand);
+}
+#app-loader.done .ld-logo {
+  transform: scale(1.05);
+  transition: transform 420ms var(--ease-brand);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ld-cap::after {
+    animation: none;
+    content: '\2026';
+  }
+}
