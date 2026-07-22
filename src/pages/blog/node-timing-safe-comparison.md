@@ -2,7 +2,6 @@
 layout: "../../components/blog/BlogPostLayout.astro"
 title: Timing-Safe Comparison with timingSafeEqual
 description: "Learn why using === for comparing secrets is vulnerable to timing attacks, and how to use Node.js's timingSafeEqual for secure string comparison."
-imageUrl: "/images/timing-safe-comparison.png"
 date: 2026-02-02
 ---
 
