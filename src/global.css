@@ -179,8 +179,8 @@
   .tag-word {
     position: absolute;
     left: 0;
+    right: 0;
     top: 0;
-    white-space: nowrap;
     pointer-events: none;
     color: var(--magenta);
     opacity: 0;

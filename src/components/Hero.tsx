@@ -126,7 +126,7 @@ export function Hero({ onPlum }: HeroProps) {
 
       <div className="mx-auto w-full max-w-[1200px] px-8">
         <div className="grid items-center gap-14 md:grid-cols-[1.25fr_0.95fr]">
-          <div className="relative z-[1]">
+          <div className="relative z-[1] min-w-0">
             <div
               className={cx(
                 'reveal-down mb-[26px] inline-flex items-center gap-[9px] rounded-full border border-border bg-card px-[15px] py-2 font-sans text-[13.5px] font-semibold text-ink-muted',
@@ -144,8 +144,6 @@ export function Hero({ onPlum }: HeroProps) {
               <span className={cx('reveal-down block', revealIn)} style={{ transitionDelay: '120ms' }}>
                 {person.name}
               </span>
-              {/* overflow-hidden clips (rather than overlaps the hero card) if the
-                  longest tagline still doesn't fit at the two-column breakpoint */}
               <span className="relative mt-1.5 block overflow-hidden">
                 {taglines.map((t, i) => {
                   const isOn = played && i === tagIdx;
@@ -156,7 +154,7 @@ export function Hero({ onPlum }: HeroProps) {
                     </span>
                   );
                 })}
-                <span className="invisible block whitespace-nowrap">{taglines.reduce((a, b) => (b.length > a.length ? b : a), '')}</span>
+                <span className="invisible block">{taglines.reduce((a, b) => (b.length > a.length ? b : a), '')}</span>
               </span>
             </h1>
 
@@ -200,7 +198,7 @@ export function Hero({ onPlum }: HeroProps) {
           </div>
 
           {/* signature feature panel — a "score HUD" console */}
-          <div data-par="-12" className={cx('reveal relative z-[1]', revealIn)} style={{ transitionDelay: '360ms' }}>
+          <div data-par="-12" className={cx('reveal relative z-[1] min-w-0', revealIn)} style={{ transitionDelay: '360ms' }}>
             <div className="overflow-hidden rounded-2xl border border-plum-border bg-plum px-5 pb-2 pt-5 shadow-lg [background:radial-gradient(120%_90%_at_88%_-6%,color-mix(in_srgb,var(--magenta)_30%,transparent),transparent_58%),var(--plum)]">
               <div className="flex items-center gap-2.5">
                 <span className="inline-flex gap-[5px]" aria-hidden="true">
